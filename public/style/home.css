@@ -1,2 +1,107 @@
-body {
+.container {
+  width: 100%;
+  background-color: aqua;
+}
+.section {
+  height: 450px;
+  padding: 100px;
+}
+.slider {
+  display: flex;
+  align-items: flex-end;
+  background-color: #9795b5;
+  color: white;
+}
+
+.slider-content {
+  width: 480px;
+}
+.slider-content-title {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+.slider-content-desc {
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+.slide-content-btn {
+  width: 123px;
+  height: 43px;
+  border-radius: 16px;
+  background-color: white;
+  border: solid 1px #9795b5;
+  color: #9795b5;
+}
+.colorIcon {
+  color: #9795b5;
+}
+
+.certification {
+  background-color: white;
+  color: #9795b5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.certification-content {
+  width: 600px;
+}
+.certification-content-title {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+.certification-content-desc {
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+.certification-images {
+  display: flex;
+  justify-content: space-around;
+  height: 360px;
+  width: 50%;
+}
+.certification-content-btn {
+  background-color: #9795b5;
+  color: white;
+  width: 123px;
+  height: 43px;
+  border-radius: 16px;
+  border: solid 1px white;
+}
+.certification-images-block {
+  margin: 20px;
+  width: 285px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whiteIcon {
+  color: white;
+}
+.btn {
+  cursor: pointer;
+  width: 123px;
+  height: 43px;
+  border-radius: 16px;
+}
+.needs {
+  background-color: #9795b5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.needs-content-title {
+  font-size: 40px;
+  margin-bottom: 25px;
+  color: white;
+}
+.needs-content-desc {
+  font-size: 12px;
+  margin-bottom: 25px;
+  color: white;
+}
+.needs-content-btn {
+  color: #9795b5;
 }
