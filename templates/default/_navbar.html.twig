@@ -1,16 +1,34 @@
+{% block style %}
+<link rel="stylesheet" href="{{ asset('style/navbar.css') }}" />
+{% endblock %}
 <nav>
-    <ul>
-        <li><a href="#">Boxes soin visage</a></li>
-        <li class="deroulant"><a href="#">Ingrédients et ustensiles</a>
-            <ul class="sous">
-                <li><a href="#">CSS display</a></li>
-                <li><a href="#">CSS position</a></li>
-                <li><a href="#">CSS float</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Notre blog</a></li>
-        <li><a href="#">Les mieux notés</a></li>
-        <li><a href="#">Connexion / Inscription</a></li>
-        <li><a href="#">Panier</a></li>
-    </ul>
+  <ul>
+    <div class="navbar navbar-left">
+      <img src="logo.png" alt="veritable" />
+      <li><a href="#">Boxes soin visage</a></li>
+      <li class="dropdown">
+        <a href="#" class="drophover"
+          >Ingrédients et ustensiles<i class="fa fa-thin fa-caret-down icon"></i
+        ></a>
+
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </li>
+      <li><a href="#">Notre blog</a></li>
+      <li><a href="#">Les mieux notés</a></li>
+    </div>
+    <div class="navbar navbar-right">
+      <li>
+        <a href="#"
+          ><i class="fa fa-solid fa-user icon"></i>Connexion / Inscription</a
+        >
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-light fa-cart-shopping icon"></i>Panier</a>
+      </li>
+    </div>
+  </ul>
 </nav>

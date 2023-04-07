@@ -2,7 +2,12 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{{ asset('styles/style.css') }}" />
+    <title>{% block title %}{% endblock %}</title>
+    <script
+      src="https://kit.fontawesome.com/8899e0bf2a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{{ asset('style/app.css') }}" />
     {% block style %} {% endblock %}
   </head>
   <body>
