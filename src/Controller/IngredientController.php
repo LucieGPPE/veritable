@@ -10,7 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class IngredientController extends AbstractController
 {
-    #[Route('/ingredient/{id}', name: 'app_home')]
+    #[Route('/ingredient/{id}', name: 'app_ingredient')]
     public function ingredient(ManagerRegistry $doctrine,int $id): Response
     {
         $ingredientRepository = $doctrine->getRepository(Ingredient::class);

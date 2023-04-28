@@ -5,19 +5,13 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Box;
-use Doctrine\Persistence\ManagerRegistry;
 
 class HomeController extends AbstractController
 {
-    #[Route('/box/{id}', name: 'app_home')]
-    public function box(ManagerRegistry $doctrine,int $id): Response
+    #[Route('/', name: 'app_home')]
+    public function box(): Response
     {
-        $boxRepository = $doctrine->getRepository(Box::class);
-        $box = $boxRepository->find($id);
-
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'BoxController','box'=>$box
-        ]);
+            'controller_name' => 'HomeController']);
     }
 }

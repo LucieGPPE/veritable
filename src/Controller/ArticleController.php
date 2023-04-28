@@ -10,7 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class ArticleController extends AbstractController
 {
-    #[Route('/article/{id}', name: 'app_home')]
+    #[Route('/article/{id}', name: 'app_article')]
     public function article(ManagerRegistry $doctrine,int $id): Response
     {
         $articleRepository = $doctrine->getRepository(Article::class);

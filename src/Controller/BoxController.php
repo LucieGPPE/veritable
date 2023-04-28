@@ -10,7 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class BoxController extends AbstractController
 {
-    #[Route('/box/{id}', name: 'app_home')]
+    #[Route('/box/{id}', name: 'app_box')]
     public function box(ManagerRegistry $doctrine,int $id): Response
     {
         $boxRepository = $doctrine->getRepository(Box::class);

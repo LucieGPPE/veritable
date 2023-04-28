@@ -10,7 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class CategorieController extends AbstractController
 {
-    #[Route('/ingredient/{id}', name: 'app_home')]
+    #[Route('/ingredient/{id}', name: 'app_category')]
     public function category(ManagerRegistry $doctrine,int $id): Response
     {
         $categoryRepository = $doctrine->getRepository(Categorie::class);

@@ -10,7 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class ProduitController extends AbstractController
 {
-    #[Route('/produit/{id}', name: 'app_home')]
+    #[Route('/produit/{id}', name: 'app_produit')]
     public function product(ManagerRegistry $doctrine,int $id): Response
     {
         $productRepository = $doctrine->getRepository(Produit::class);
