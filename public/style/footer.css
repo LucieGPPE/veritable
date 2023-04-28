@@ -7,13 +7,13 @@ footer {
 }
 .newsletter-title {
   font-size: 28px;
-  color: #5d5a88;
+  color: #241916;
   margin-bottom: 25px;
 }
 
 .newsletter-desc {
   font-size: 16px;
-  color: #9795b5;
+  color: #241916;
   margin-bottom: 25px;
   width: 400px;
 }
@@ -23,12 +23,12 @@ footer {
   gap: 240px;
   padding: 13px 24px;
   border-radius: 16px;
-  border: solid 1px #9795b5;
+  border: solid 1px #241916;
   background-color: rgba(217, 217, 217, 0.4);
 }
 
 .newsletter-form-btn {
-  background-color: #9795b5;
+  background-color: #241916;
   color: white;
   width: 123px;
   height: 43px;
@@ -50,16 +50,17 @@ footer {
 
 .footer-links-title {
   font-size: 28px;
-  color: #5d5a88;
+  color: #241916;
   margin-bottom: 20px;
 }
 .footer-links-list-desc {
   font-size: 16px;
-  color: #9795b5;
+  color: #241916;
   margin-bottom: 10px;
 }
 .footer-links ul li a {
   text-decoration: none;
+  color: #241916;
 }
 .footer-links ul {
   list-style: none;
@@ -68,11 +69,11 @@ footer {
   margin-top: 200px;
 }
 .copyright hr {
-  color: #9795b5;
+  color: #241916;
 }
 
 .copyright-text {
-  color: #9795b5;
+  color: #241916;
   font-size: 18px;
   text-align: center;
   margin-top: 24px;

@@ -37,7 +37,7 @@
 
 .certification {
   background-color: white;
-  color: #9795b5;
+  color: #241916;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +60,7 @@
   width: 50%;
 }
 .certification-content-btn {
-  background-color: #9795b5;
+  background-color: #241916;
   color: white;
   width: 123px;
   height: 43px;
