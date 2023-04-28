@@ -8,6 +8,7 @@ use App\Entity\Certification;
 use App\Entity\Commande;
 use App\Entity\Image;
 use App\Entity\Avis;
+use App\Entity\Ingredient;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -52,6 +53,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Certifications', 'fas fa-list', Certification::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-list', Avis::class);
         yield MenuItem::linkToCrud('Commande', 'fas fa-list', Commande::class);
+        yield MenuItem::linkToCrud('Ingredient', 'fas fa-list', Ingredient::class);
     }
 
     public function configureFields(string $pageName): iterable
