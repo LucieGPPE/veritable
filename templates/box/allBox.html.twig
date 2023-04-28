@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %} {% block title %}Nos boxs{% endblock %} {% block
+style %}
+
+<link rel="stylesheet" href="{{ asset('style/box.css') }}" />{% endblock %} {%
+block body %}
+<div class="container">
+  <div class="section banner">
+    <div class="banner-content">
+      <h2 class="banner-content-title">
+        Les boxs cosmétiques DIY pour tous.tes
+      </h2>
+      <p class="banner -content-desc">
+        Parce que chaque personne est singulière, tous les produits que nous
+        vous proposons ont une composition personnalisable, qui s'adaptera aussi
+        bien à vos précautions qu'à vos goûts.
+      </p>
+      <button class="banner-content-btn btn" type="button">
+        Default <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
+      </button>
+    </div>
+  </div>
+
+  {# {% for box in boxs %}
+  <li>{{ box.libelle }}</li>
+  {% endfor %} #}
+</div>
+{% endblock %}
