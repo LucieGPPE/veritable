@@ -1,6 +1,5 @@
 .container {
   width: 100%;
-  background-color: aqua;
 }
 .section {
   height: 450px;
@@ -104,4 +103,24 @@
 }
 .needs-content-btn {
   color: #9795b5;
+}
+
+.blog-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.blog-text-part {
+  max-width: 380px;
+}
+
+.blog h2 {
+  margin-bottom: 25px;
+  font-size: 44px;
+}
+.blog-text-part .btn {
+  background-color: #241916;
+  border: none;
+  color: white;
+  width: 230px;
 }
