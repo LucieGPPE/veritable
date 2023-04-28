@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Box;
 use Doctrine\Persistence\ManagerRegistry;
 
-class HomeController extends AbstractController
+class BoxController extends AbstractController
 {
     #[Route('/box/{id}', name: 'app_home')]
     public function box(ManagerRegistry $doctrine,int $id): Response

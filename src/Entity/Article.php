@@ -93,4 +93,5 @@ class Article
 
         return $this;
     }
+
 }
