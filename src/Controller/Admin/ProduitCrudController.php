@@ -26,6 +26,7 @@ class ProduitCrudController extends AbstractCrudController
             TextField::new('provenance'),
             AssociationField::new('categories'),
             AssociationField::new('images'),
+            AssociationField::new('ingredients'),
             AssociationField::new('certifications'),
         ];
     }
