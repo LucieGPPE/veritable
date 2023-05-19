@@ -1,27 +1,67 @@
 {% extends 'base.html.twig' %} {% block title %}Nos boxs{% endblock %} {% block
 style %}
 
-<link rel="stylesheet" href="{{ asset('style/box.css') }}" />{% endblock %} {%
-block body %}
+<link rel="stylesheet" href="{{ asset('style/allBox.css') }}" />{% endblock %}
+{% block body %}
 <div class="container">
-  <div class="section banner">
+  <div class="banner">
+    <div class="banner-link">
+      <a href="../">Accueil/</a><a href="">Box soins visage</a>
+    </div>
     <div class="banner-content">
-      <h2 class="banner-content-title">
-        Les boxs cosmétiques DIY pour tous.tes
-      </h2>
-      <p class="banner -content-desc">
-        Parce que chaque personne est singulière, tous les produits que nous
-        vous proposons ont une composition personnalisable, qui s'adaptera aussi
-        bien à vos précautions qu'à vos goûts.
+      <h1 class="banner-content-title">Boxs soin visage</h1>
+      <p class="banner-content-desc">
+        Nos soins visages permettent une action locale immédiate et à long terme
+        ciblée sur vos préoccupations, faites un questionnaire de 4 min pour
+        trouver la box correspondant à vos besoins.
       </p>
       <button class="banner-content-btn btn" type="button">
         Default <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
       </button>
     </div>
   </div>
-
-  {# {% for box in boxs %}
-  <li>{{ box.libelle }}</li>
-  {% endfor %} #}
+  <div class="list-box">
+    {% for box in boxs %} {% if loop.index is odd %}
+    <div class="box list-box-right">
+      {% else %}
+      <div class="box list-box-left">
+        {% endif %}
+        <img
+          src="{{ asset('uploads/img/box.jpg') }}"
+          alt="{{ box.libelle }} img"
+        />
+        <div class="list-box-detail">
+          <div>
+            <div class="list-box-detail-title">
+              {{ box.libelle }}
+            </div>
+            <div class="list-box-detail-desc">
+              {{ box.description | raw }}
+            </div>
+            <div class="list-box-detail-price">
+              <a href="{{ path('app_box_id', { id: box.id }) }}">
+                <button class="list-box-detail-price-btn">
+                  <span> Box individuelle</span> <span> {{ box.prix }}</span>
+                </button></a
+              >
+              {% for duree in durees %}
+              <a href="{{ path('app_box_id', { id: box.id }) }}">
+                <button class="list-box-detail-price-btn">
+                  <span> Abonnement {{ duree.libelle }}</span>
+                  <span
+                    >{{
+                      box.prix - box.prix * (duree.pourcentage / 100)
+                    }}€/mois</span
+                  >
+                </button></a
+              >
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

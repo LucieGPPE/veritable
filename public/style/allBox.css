@@ -1,0 +1,104 @@
+.container {
+  width: 100%;
+}
+.banner {
+  height: 450px;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../uploads/img/bannerBox.jpg"), #503f37;
+  background-size: cover;
+  background-position: center center;
+  padding: 50px 100px 100px 100px;
+}
+.banner-link > a {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  color: white;
+  text-decoration: none;
+}
+.banner-content {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.banner-content-title {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 120%;
+  text-align: right;
+  margin-bottom: 25px;
+}
+.banner-content-desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+
+  text-align: right;
+
+  margin-bottom: 25px;
+}
+.banner-content-btn {
+  width: 123px;
+  height: 43px;
+  border-radius: 16px;
+  background-color: white;
+  border: solid 1px #9795b5;
+  color: #9795b5;
+}
+
+.box {
+  display: flex;
+  width: 100%;
+  height: 650px;
+}
+
+.list-box-left {
+  flex-direction: row-reverse;
+}
+.box img {
+  display: flex;
+  width: 50%;
+}
+.list-box-detail {
+  width: 50%;
+}
+.list-box-detail > div {
+  padding: 100px;
+}
+.list-box-detail-title {
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 120%;
+}
+
+.list-box-detail-desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  margin: 25px 0 50px 0;
+}
+.list-box-detail-price a {
+  text-decoration: none;
+}
+
+.list-box-detail-price-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 13px 24px;
+  gap: 8px;
+  background: #241916;
+  border: 1px solid #241916;
+  border-radius: 30px;
+  color: white;
+  margin-top: 10px;
+}
+.list-box-detail-price-btn:hover {
+  cursor: pointer;
+}

@@ -8,7 +8,9 @@
 .slider {
   display: flex;
   align-items: flex-end;
-  background-color: #9795b5;
+  background-image: url("../uploads/img/slider.jpg");
+  background-size: cover;
+  background-position: center center;
   color: white;
 }
 
@@ -59,6 +61,15 @@
   height: 360px;
   width: 50%;
 }
+.certification-images-block {
+  width: 200px;
+  height: 300px;
+  background-color: #503f37;
+}
+.certification-images-block > img {
+  max-width: 200px;
+}
+
 .certification-content-btn {
   background-color: #241916;
   color: white;
@@ -85,7 +96,9 @@
   border-radius: 16px;
 }
 .needs {
-  background-color: #9795b5;
+  background-image: url("../uploads/img/need.jpg");
+  background-size: cover;
+  background-position: center center;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

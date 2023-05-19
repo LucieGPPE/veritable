@@ -20,8 +20,8 @@ class ImagesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            ImageField::new('libelle')->setUploadDir('/public/uploads/img/')
-                ->setBasePath('uploads/img/'),            TextField::new('lien'),
+            ImageField::new('lien')->setUploadDir('/public/uploads/img/')
+                ->setBasePath('uploads/img/'),            TextField::new('libelle'),
             ];
     }
 

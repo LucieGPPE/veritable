@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %} {% block title %}{{ box.libelle }}{% endblock %}
+{% block style %}
+
+<link rel="stylesheet" href="{{ asset('style/box.css') }}" />{% endblock %} {%
+block body %}
+<div class="container">
+  <div class="box-presentation">
+    <div class="top-link">
+      <a href="../">Accueil / </a><a href="../box"> Box soins visage / </a
+      ><a href="">{{ box.libelle }}</a>
+    </div>
+    <div class="box-presentation-detail">
+      <img
+        src="{{ asset('uploads/img/box.jpg') }}"
+        alt="{{ box.libelle }} img"
+      />
+      <div class="box-presentation-detail-desc">
+        <h1 class="box-presentation-detail-desc-title">{{ box.libelle }}</h1>
+        <div class="box-presentation-detail-desc-rate">5 etoiles</div>
+        <div class="box-presentation-detail-desc-content">
+          <span class="box-presentation-detail-desc-content-title"
+            >Chaque box contient</span
+          >
+          <ul>
+            <li>2 recettes</li>
+            <li>Les ingrédients nécessaires à la réalisation de la recette</li>
+            <li>Les ustensiles nécessaires à la réalisation de la recette</li>
+            <li>1 fiche traçabilité des produits</li>
+          </ul>
+        </div>
+        <div class="box-presentation-detail-desc-content">
+          <span class="box-presentation-detail-desc-content-title"
+            >Deux parfums au choix</span
+          >
+          <div class="box-presentation-detail-desc-content-parfum">
+            <button>Vanille</button>
+            <button>Pêche</button>
+            <button>Fleur de coton</button>
+            <button>Pin</button>
+            <button>Bois de sental</button>
+            <button>Monoï</button>
+            <button>Musc blanc</button>
+          </div>
+          <div class="box-presentation-detail-desc-content-select">
+            <select
+              class="box-presentation-detail-desc-content-select-dropdown"
+            >
+              <option value="option1">Box individuelle</option>
+              <option value="option2">Box 3 mois</option>
+              <option value="option3">Box 6 mois</option>
+              <option value="option4">Box 12 mois</option>
+            </select>
+          </div>
+          <div class="box-presentation-detail-desc-content-order">
+            <button class="box-presentation-detail-desc-content-order-btn">
+              Commander
+              <span><i class="fa fa-thin fa-arrow-right icon"></i></span>
+            </button>
+          </div>
+          <div class="box-presentation-detail-desc-content-bonus">
+            <span> <i class="fa fa-light fa-gift"></i> Un produit offert</span>
+            <span class="box-presentation-detail-desc-content-bonus--price"
+              >à partir de 75€</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box-month">
+    <div class="box-month-description">
+      {% for produit in box.produit %}
+      <div>{{ produit.libelle }}</div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="box-rate">
+    <div class="box-rate-avg">
+      <div class="box-rate-avg-title">Avis</div>
+      <div class="box-rate-avg-stars">
+        <div class="box-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <span>70%</span>
+        </div>
+        <div class="box-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>30%</span>
+        </div>
+        <div class="box-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>10%</span>
+        </div>
+        <div class="box-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>2%</span>
+        </div>
+        <div class="box-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>0%</span>
+        </div>
+      </div>
+    </div>
+    <div class="box-rate-list">
+      {% for avis in box.avis %}
+      <div class="box-rate-detail">
+        <div class="box-rate-user">
+          {{ avis.client.utilisateur.nom }}
+          {{ avis.client.utilisateur.prenom }}
+        </div>
+        <div>
+          {% for _ in range(1,avis.note) %}
+          <i class="fa fa-solid fa-star star yellow"></i>
+          {% endfor %}
+          <div class="box-rate-com">
+            {{ avis.commentaire }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

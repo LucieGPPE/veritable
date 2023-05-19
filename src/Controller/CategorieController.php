@@ -17,6 +17,7 @@ class CategorieController extends AbstractController
         $category = $categoryRepository->find($id);
 
         return $this->render('home/index.html.twig', [
+           
             'controller_name' => 'CategorieController','categorie'=>$category
         ]);
     }
