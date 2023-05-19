@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %} {% block title %}Nos Produits{% endblock %} {%
+block style %}
+
+<link rel="stylesheet" href="{{ asset('style/allProduct.css') }}" />{% endblock
+%} {% block body %}
+<div class="container">
+  <div class="banner">
+    <div class="banner-link">
+      <a href="../">Accueil/</a><a href=""> Ingrédients et ustensiles </a>
+    </div>
+    <div class="banner-content">
+      <h1 class="banner-content-title">Principe actif</h1>
+      <p class="banner-content-desc">
+        Nos soins visages permettent une action locale immédiate et à long terme
+        ciblée sur vos préoccupations, faites un questionnaire de 4 min pour
+        trouver la box correspondant à vos besoins.
+      </p>
+    </div>
+  </div>
+  <div class="list-category">
+    {% for category in categories %}
+    <div class="category">
+      <div class="category-title">
+        {{ category.libelle }}
+      </div>
+      <div class="category-product">
+        {% for product in category.produit %}
+        <div class="category-product-content">
+          <img src="" alt="" />
+          <div class="category-product-content-title">
+            {{ product.libelle }}
+          </div>
+          <div class="category-product-content-price">{{ product.prix }}</div>
+          <button class="category-product-content-btn btn" type="button">
+            Commander <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

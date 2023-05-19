@@ -11,6 +11,16 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class ProduitController extends AbstractController
 {
+    #[Route('/produit', name: 'app_produit')]
+    public function product(ManagerRegistry $doctrine): Response
+    {
+        $categoriesRepository = $doctrine->getRepository(Categorie::class);
+        $categories = $categoriesRepository->findAll();
+
+        return $this->render('product/allProduct.html.twig', [
+            'controller_name' => 'ProduitController','categories'=>$categories
+        ]);
+    }
     #[Route('/produit/{id}', name: 'app_produit_id')]
     public function productById(ManagerRegistry $doctrine,int $id): Response
     {
@@ -22,14 +32,5 @@ class ProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/produit', name: 'app_produit')]
-    public function product(ManagerRegistry $doctrine,int $id): Response
-    {
-        $categoriesRepository = $doctrine->getRepository(Categorie::class);
-        $categories = $categoriesRepository->findAll();
-
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'ProduitController','categories'=>$categories
-        ]);
-    }
+    
 }
