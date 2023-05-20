@@ -56,3 +56,9 @@ nav ul {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none;
+}

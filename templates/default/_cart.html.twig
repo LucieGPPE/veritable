@@ -1,0 +1,29 @@
+{% block style %}
+<link rel="stylesheet" href="{{ asset('style/cart.css') }}" />
+{% endblock %}
+
+<div class="cart-modal">
+  <div class="cart-modal-content">
+    <div class="cart-modal-header">
+      <h5 class="cart-modal-header-title" id="cartModalLabel">Mon panier</h5>
+
+      <hr />
+    </div>
+    <div class="modal-body">
+      {% if cart is empty %}
+      <p>Le panier est vide.</p>
+      {% else %} {% for item in cart %}
+
+      <div class="modal-body-product">
+        <span>{{ item.id }}</span>
+        <span>{{ item.libelle }}</span>
+        <span>{{ item.quantity }}</span>
+      </div>
+      <hr />
+      {% endfor %}
+      <div class="modal-body-total">Total <span>XX.XX€</span></div>
+      <button class="modal-body-btn">Régler mon panier</button>
+      {% endif %}
+    </div>
+  </div>
+</div>

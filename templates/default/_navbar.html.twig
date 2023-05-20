@@ -9,7 +9,7 @@
       /></a>
       <li><a href="../box">Boxs soin visage</a></li>
       <li class="dropdown">
-        <a href="#" class="drophover"
+        <a href="{{ path('app_product') }}" class="drophover"
           >Ingrédients et ustensiles<i class="fa fa-thin fa-caret-down icon"></i
         ></a>
 
@@ -29,8 +29,30 @@
         >
       </li>
       <li>
-        <a href="#"><i class="fa fa-light fa-cart-shopping icon"></i>Panier</a>
+        <a href="#" id="cartLink"
+          ><i class="fa fa-light fa-cart-shopping icon"></i>Panier</a
+        >
       </li>
     </div>
   </ul>
 </nav>
+
+<div id="cartModal" class="hidden">
+  {{ include("default/_cart.html.twig") }}
+</div>
+{% block script %}
+<script>
+  document
+    .getElementById("cartLink")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      document.getElementById("cartModal").classList.toggle("show");
+    });
+  document
+    .getElementById("closeCart")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      document.getElementById("cartModal").classList.remove("show");
+    });
+</script>
+{% endblock %}

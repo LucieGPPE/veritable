@@ -41,22 +41,31 @@ block body %}
             <button>Monoï</button>
             <button>Musc blanc</button>
           </div>
-          <div class="box-presentation-detail-desc-content-select">
-            <select
-              class="box-presentation-detail-desc-content-select-dropdown"
-            >
-              <option value="option1">Box individuelle</option>
-              <option value="option2">Box 3 mois</option>
-              <option value="option3">Box 6 mois</option>
-              <option value="option4">Box 12 mois</option>
-            </select>
-          </div>
-          <div class="box-presentation-detail-desc-content-order">
-            <button class="box-presentation-detail-desc-content-order-btn">
-              Commander
-              <span><i class="fa fa-thin fa-arrow-right icon"></i></span>
-            </button>
-          </div>
+          <form action="{{ path('app_add_order_id') }}" method="post">
+            <div class="box-presentation-detail-desc-content-select">
+              <select
+                class="box-presentation-detail-desc-content-select-dropdown"
+                name="subscription-type"
+              >
+                <option value="solo">Box individuelle</option>
+                {% for duree in durees %}
+                <option value="{{ duree.id }}">Box {{ duree.libelle }}</option>
+
+                {% endfor %}
+              </select>
+            </div>
+            <input type="hidden" name="box-id" value="{{ box.id }}" />
+            <input type="hidden" name="box-libelle" value="{{ box.libelle }}" />
+            <div class="box-presentation-detail-desc-content-order">
+              <button
+                class="box-presentation-detail-desc-content-order-btn"
+                type="submit"
+              >
+                Commander
+                <span><i class="fa fa-thin fa-arrow-right icon"></i></span>
+              </button>
+            </div>
+          </form>
           <div class="box-presentation-detail-desc-content-bonus">
             <span> <i class="fa fa-light fa-gift"></i> Un produit offert</span>
             <span class="box-presentation-detail-desc-content-bonus--price"

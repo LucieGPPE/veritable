@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %} {% block title %}{{ product.libelle }}{% endblock
+%} {% block style %}
+
+<link rel="stylesheet" href="{{ asset('style/product.css') }}" />{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="product-presentation">
+    <div class="top-link">
+      <a href="../">Accueil / </a
+      ><a href="../product"> product soins visage / </a
+      ><a href="">{{ product.libelle }}</a>
+    </div>
+    <div class="product-presentation-detail">
+      <img
+        src="{{ asset('uploads/img/product.png') }}"
+        alt="{{ product.libelle }} img"
+      />
+      <div class="product-presentation-detail-desc">
+        <h1 class="product-presentation-detail-desc-title">
+          {{ product.libelle }}
+        </h1>
+        <div class="product-presentation-detail-desc-rate">5 etoiles</div>
+        <div class="product-presentation-detail-desc-content">
+          {{ product.description | raw }}
+        </div>
+          <div class="product-presentation-detail-desc-content-order">
+            <form action="{{path('app_add_product_id')}}" method="post">
+               <div class="form-add-cart">
+                <div class="custom-number-input">
+                    <input type="number" class="input-number"  inputmode="numeric" pattern="[1-9]*"  min="1" max="9" step="1" value="1" name="qts" id="quantite">
+                    <div class="custom-number-input-btn">
+                        <button class="plus-btn">+</button>
+
+                        <button class="minus-btn">-</button>
+
+                    </div>
+                    
+                      </div>
+                      
+                <input  name="id_product" id="id_product" type="hidden" value="{{product.id}}">
+                <input  name="libelle_product" id="libelle_product" type="hidden" value="{{product.libelle}}">
+            <button class="product-presentation-detail-desc-content-order-btn" type="submit">
+            <span>{{product.prix}}€</span>  Commander
+              <span><i class="fa fa-thin fa-arrow-right icon"></i></span>
+            </button>
+               </div>
+                    </form>
+          </div>
+          <div class="product-presentation-detail-desc-content-bonus">
+            <span> <i class="fa fa-light fa-gift"></i> Un produit offert</span>
+            <span class="product-presentation-detail-desc-content-bonus--price"
+              >à partir de 75€</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-month"></div>
+  <div class="product-rate">
+    <div class="product-rate-avg">
+      <div class="product-rate-avg-title">Avis</div>
+      <div class="product-rate-avg-stars">
+        <div class="product-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <span>70%</span>
+        </div>
+        <div class="product-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>30%</span>
+        </div>
+        <div class="product-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>10%</span>
+        </div>
+        <div class="product-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>2%</span>
+        </div>
+        <div class="product-rate-avg-star">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <i class="fa fa-solid fa-star fa-xl star black"></i>
+          <span>0%</span>
+        </div>
+      </div>
+    </div>
+    <div class="product-rate-list">
+      {% for avis in product.avis %}
+      <div class="product-rate-detail">
+        <div class="product-rate-user">
+          {{ avis.client.utilisateur.nom }}
+          {{ avis.client.utilisateur.prenom }}
+        </div>
+        <div>
+          {% for _ in range(1,avis.note) %}
+          <i class="fa fa-solid fa-star star yellow"></i>
+          {% endfor %}
+          <div class="product-rate-com">
+            {{ avis.commentaire }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+    const minusBtn = document.querySelector(".minus-btn");
+const plusBtn = document.querySelector(".plus-btn");
+const inputNumber = document.querySelector(".input-number");
+
+minusBtn.addEventListener("click", function(e) {
+    e.preventDefault()
+  const currentValue = parseInt(inputNumber.value);
+  if (currentValue > 0) {
+    inputNumber.value = currentValue - 1;
+  }
+});
+
+plusBtn.addEventListener("click", function(e) {
+    e.preventDefault()
+  const currentValue = parseInt(inputNumber.value);
+  inputNumber.value = currentValue + 1;
+});
+
+</script>
+{% endblock %}

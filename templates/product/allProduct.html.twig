@@ -26,14 +26,17 @@ block style %}
       <div class="category-product">
         {% for product in category.produit %}
         <div class="category-product-content">
-          <img src="" alt="" />
+          {% if product.images is not empty %}
+          <img src="uploads/img/{{ product.images.first().lien }}" alt="" />
+
+          {% endif %}
           <div class="category-product-content-title">
             {{ product.libelle }}
           </div>
-          <div class="category-product-content-price">{{ product.prix }}</div>
-          <button class="category-product-content-btn btn" type="button">
-            Commander <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
-          </button>
+          <div class="category-product-content-price">{{ product.prix }}€</div>
+          <a href="{{path('app_product_id',{id: product.id })}}"><button type="button" class="category-product-content-btn btn">
+            Voir plus <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
+          <button></a>
         </div>
         {% endfor %}
       </div>

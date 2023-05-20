@@ -24,10 +24,6 @@ class ProduitCrudController extends AbstractCrudController
             NumberField::new('prix'),
             TextEditorField::new('description'),
             TextField::new('provenance'),
-            AssociationField::new('categories'),
-            AssociationField::new('images'),
-            AssociationField::new('ingredients'),
-            AssociationField::new('certifications'),
         ];
     }
 

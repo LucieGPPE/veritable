@@ -22,6 +22,7 @@ class CategorieCrudController extends AbstractCrudController
             TextField::new('libelle'),
             TextEditorField::new('description'),
             AssociationField::new('image'),
+            AssociationField::new('produit'),
             ];
     }
 
