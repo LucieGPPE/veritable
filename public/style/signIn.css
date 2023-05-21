@@ -1,0 +1,68 @@
+.signIn-modal {
+  position: absolute;
+  width: 1000px;
+  background-color: white;
+  top: 140px;
+  left: 50%;
+  transform: translate(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+.signIn-modal-img {
+  width: 360px;
+  object-fit: cover;
+  height: 720px;
+}
+.signIn-modal-body {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+.signIn-modal-close {
+  text-align: right;
+}
+
+.signIn-modal-body-content-block {
+  width: 370px;
+  margin: auto;
+  margin-top: 60px;
+}
+.signIn-modal-body-content-title {
+  margin-bottom: 25px;
+}
+.signIn-modal-body-content-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.inputText {
+  background: rgba(217, 217, 217, 0.4);
+  height: 45px;
+  border-radius: 16px;
+  margin: 10px;
+  border: none;
+  padding: 0 20px;
+}
+.inputOption {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-logIn {
+  margin-top: 80px;
+  width: 100%;
+  background-color: rgba(36, 25, 22, 1);
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #241916;
+  border-radius: 16px;
+  padding: 15px 20px;
+  color: white;
+}
+.inputOption label {
+  margin-left: 5px;
+}
+.btn-white {
+  background-color: white;
+  margin: 5px 0 100px 0;
+  color: #241916;
+}

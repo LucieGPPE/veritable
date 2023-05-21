@@ -24,7 +24,7 @@
     </div>
     <div class="navbar navbar-right">
       <li>
-        <a href="#"
+        <a href="#" id="signInLink"
           ><i class="fa fa-solid fa-user icon"></i>Connexion / Inscription</a
         >
       </li>
@@ -40,6 +40,10 @@
 <div id="cartModal" class="hidden">
   {{ include("default/_cart.html.twig") }}
 </div>
+<div id="signInModal" class="hidden">
+  {{ include("default/_signIn.html.twig") }}
+</div>
+
 {% block script %}
 <script>
   document
@@ -49,10 +53,16 @@
       document.getElementById("cartModal").classList.toggle("show");
     });
   document
-    .getElementById("closeCart")
+    .getElementById("signInLink")
     .addEventListener("click", function (event) {
       event.preventDefault();
-      document.getElementById("cartModal").classList.remove("show");
+      document.getElementById("signInModal").classList.toggle("show");
+    });
+  document
+    .getElementById("closeSignIn")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      document.getElementById("signInModal").classList.remove("show");
     });
 </script>
 {% endblock %}

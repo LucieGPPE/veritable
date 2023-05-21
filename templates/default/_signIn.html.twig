@@ -1,0 +1,43 @@
+{% block style %}
+<link rel="stylesheet" href="{{ asset('style/signIn.css') }}" />
+{% endblock %}
+
+<div class="signIn-modal">
+  <img src="{{ asset('uploads/img/signIn.jpg') }}" class="signIn-modal-img" />
+  <div class="signIn-modal-body">
+    <div class="signIn-modal-body-content">
+      <div id="closeSignIn" class="signIn-modal-close">
+        <i class="fa fa-regular fa-circle-xmark fa-lg"></i>
+      </div>
+      <div class="signIn-modal-body-content-block">
+        <h1 class="signIn-modal-body-content-title">Hello again</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis ex
+          culpa illo, obcaecati illum exercitationem ratione reiciendis
+        </p>
+
+        <form action="" method="post" class="signIn-modal-body-content-form">
+          <input type="text" class="inputText" placeholder="E-mail" />
+          <input type="text" class="inputText" placeholder="Mot de passe" />
+          <div class="inputOption">
+            <div>
+              <input type="checkbox" name="stayLog" /><label for="stayLog"
+                >Rester connecté</label
+              >
+            </div>
+
+            <a href="">Mot de passe oublié</a>
+          </div>
+          <button class="btn-logIn">
+            Me connecter
+            <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
+          </button>
+        </form>
+        <button class="btn-logIn btn-white">
+          M'inscrire
+          <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

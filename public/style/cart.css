@@ -6,6 +6,9 @@
   height: 100%;
   padding: 50px 30px;
 }
+.modal-body-empty {
+  margin-top: 20px;
+}
 
 .cart-modal-header-title {
   font-weight: 700;
