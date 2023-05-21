@@ -3,22 +3,41 @@
 {% endblock %}
 
 <div class="signIn-modal">
-  <img src="{{ asset('uploads/img/signIn.jpg') }}" class="signIn-modal-img" />
+  <div class="modal-img">
+    <img src="{{ asset('uploads/img/signIn.jpg') }}" class="signIn-modal-img" />
+  </div>
   <div class="signIn-modal-body">
     <div class="signIn-modal-body-content">
       <div id="closeSignIn" class="signIn-modal-close">
         <i class="fa fa-regular fa-circle-xmark fa-lg"></i>
       </div>
-      <div class="signIn-modal-body-content-block">
+      <div id="modalLogIn" class="signIn-modal-body-content-block">
         <h1 class="signIn-modal-body-content-title">Hello again</h1>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis ex
           culpa illo, obcaecati illum exercitationem ratione reiciendis
         </p>
 
-        <form action="" method="post" class="signIn-modal-body-content-form">
-          <input type="text" class="inputText" placeholder="E-mail" />
-          <input type="text" class="inputText" placeholder="Mot de passe" />
+        <form
+          action="{{ path('app_auth') }}"
+          method="post"
+          class="signIn-modal-body-content-form"
+        >
+          <input
+            type="text"
+            class="inputText"
+            name="email"
+            placeholder="E-mail"
+          />
+          <input
+            type="text"
+            class="inputText"
+            name="password"
+            placeholder="Mot de passe"
+          />
+          {% for flashMessage in app.flashes('error') %}
+          <div class="alert alert-danger">{{ flashMessage }}</div>
+          {% endfor %}
           <div class="inputOption">
             <div>
               <input type="checkbox" name="stayLog" /><label for="stayLog"
@@ -33,11 +52,119 @@
             <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
           </button>
         </form>
-        <button class="btn-logIn btn-white">
+        <button class="btn-logIn btn-white" id="switchSignUp">
           M'inscrire
+          <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
+        </button>
+      </div>
+
+      <div id="modalSignUp" class="signIn-modal-body-content-block">
+        <h1 class="signIn-modal-body-content-title">Hello again</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis ex
+          culpa illo, obcaecati illum exercitationem ratione reiciendis
+        </p>
+
+        <form
+          action="{{ path('app_register') }}"
+          method="post"
+          class="signIn-modal-body-content-form"
+        >
+          <div class="inputName">
+            <input
+              type="text"
+              name="name"
+              class="inputText"
+              placeholder="Nom"
+              required
+            />
+            <input
+              type="text"
+              name="firstName"
+              class="inputText"
+              placeholder="Prénom"
+              required
+            />
+          </div>
+          <input
+            type="date"
+            name="birthDate"
+            class="inputText"
+            placeholder="xx/xx/xx"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            class="inputText"
+            placeholder="E-mail"
+            required
+          />
+          <input
+            type="tel"
+            name="numTel"
+            class="inputText"
+            placeholder="Numéro de téléphone"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            class="inputText"
+            placeholder="Mot de passe"
+            required
+          />
+          <input
+            type="password"
+            class="inputText"
+            placeholder="Vérifier le mot de passe"
+            required
+          />
+          <div class="input-checkbox">
+            <div>
+              <input type="checkbox" name="stayLog" /><label for="stayLog"
+                >Subscribe to receive communications from Aesop about our
+                products and services.</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" name="stayLog" /><label for="stayLog"
+                >Please confirm you have read and accept our privacy
+                policy.</label
+              >
+            </div>
+
+            <div>
+              <input type="checkbox" name="stayLog" /><label for="stayLog"
+                >Please confirm that you have read and accept our terms and
+                conditions.</label
+              >
+            </div>
+          </div>
+
+          <button class="btn-logIn">
+            M'inscrire
+            <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
+          </button>
+        </form>
+        <button class="btn-logIn btn-white" id="switchSignIn">
+          Me connecter
           <i class="fa fa-thin fa-arrow-right icon colorIcon"></i>
         </button>
       </div>
     </div>
   </div>
 </div>
+
+{% block script %}
+<script>
+  document.getElementById("switchSignUp").addEventListener("click", () => {
+    document.getElementById("modalLogIn").style.display = "none";
+    document.getElementById("modalSignUp").style.display = "block";
+  });
+  document.getElementById("switchSignIn").addEventListener("click", () => {
+    document.getElementById("modalLogIn").style.display = "block";
+    document.getElementById("modalSignUp").style.display = "none";
+  });
+</script>
+{% endblock %}

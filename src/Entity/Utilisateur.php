@@ -5,10 +5,12 @@ namespace App\Entity;
 use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
-class Utilisateur
+class Utilisateur implements PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -38,6 +40,9 @@ class Utilisateur
 
     #[ORM\OneToOne(mappedBy: 'utilisateur', cascade: ['persist', 'remove'])]
     private ?Client $client = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $date_naissance = null;
 
     public function __construct()
     {
@@ -175,5 +180,34 @@ class Utilisateur
 
     public function __toString() {
         return $this->nom;
+    }
+
+    public function getDateNaissance(): ?\DateTimeInterface
+    {
+        return $this->date_naissance;
+    }
+
+    public function setDateNaissance(?\DateTimeInterface $date_naissance): self
+    {
+        $this->date_naissance = $date_naissance;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        // Retournez le mot de passe haché de l'utilisateur
+        return $this->mot_de_passe;
+    }
+
+    public function getSalt(): ?string
+    {
+        // Vous pouvez laisser cette méthode vide si vous utilisez l'encodeur de mot de passe recommandé par Symfony (bcrypt, argon2i, etc.)
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        // Vous pouvez laisser cette méthode vide si vous n'avez pas besoin d'effacer les informations sensibles de l'utilisateur
     }
 }

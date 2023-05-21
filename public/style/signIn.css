@@ -8,10 +8,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
 }
+.modal-img {
+  flex-grow: 1;
+}
 .signIn-modal-img {
   width: 360px;
   object-fit: cover;
-  height: 720px;
+  height: 100%;
 }
 .signIn-modal-body {
   padding: 20px;
@@ -39,7 +42,7 @@
   background: rgba(217, 217, 217, 0.4);
   height: 45px;
   border-radius: 16px;
-  margin: 10px;
+  margin: 10px 0;
   border: none;
   padding: 0 20px;
 }
@@ -65,4 +68,25 @@
   background-color: white;
   margin: 5px 0 100px 0;
   color: #241916;
+}
+#modalSignUp {
+  display: none;
+}
+.inputName {
+  display: flex;
+  justify-content: space-between;
+}
+.input-checkbox {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+}
+.input-checkbox input {
+  margin-right: 10px;
+}
+.input-checkbox div {
+  margin-top: 28px;
 }

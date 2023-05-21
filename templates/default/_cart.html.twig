@@ -10,7 +10,7 @@
       <hr />
     </div>
     <div class="modal-body">
-      {% if cart is empty %}
+      {% if cart is defined%} {% if cart is empty %}
       <p class="modal-body-empty">Le panier est vide.</p>
       {% else %} {% for item in cart %}
 
@@ -23,7 +23,7 @@
       {% endfor %}
       <div class="modal-body-total">Total <span>XX.XX€</span></div>
       <button class="modal-body-btn">Régler mon panier</button>
-      {% endif %}
+      {% endif %} {% endif %}
     </div>
   </div>
 </div>
