@@ -7,9 +7,9 @@ L’objectif principal de Véritable est de mettre à disposition des produits b
 - Naïma MIRAOUI : Cheffe de projet
 - Soline LEFEVRE : Rédactrice
 - Emilie MULLER : Webmarketing
-- Thomas Benard : Webdesigner
+- Thomas BENARD : Webdesigner
 - Lucie GUERREIRO : Développeuse front
-- Mattheo Valcke : Développeur back
+- Mattheo VALCKE : Développeur back
 
 ## Cadre du développement
 
