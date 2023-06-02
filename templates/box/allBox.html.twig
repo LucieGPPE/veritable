@@ -39,20 +39,19 @@ style %}
               {{ box.description | raw }}
             </div>
             <div class="list-box-detail-price">
+              {% set prixIndividuel = box.prix %}
               <a href="{{ path('app_box_id', { id: box.id }) }}">
                 <button class="list-box-detail-price-btn">
-                  <span> Box individuelle</span> <span> {{ box.prix }}</span>
+                  <span> Box individuelle</span>
+                  <span> {{ prixIndividuel }} €</span>
                 </button></a
               >
-              {% for duree in durees %}
+              {% for duree in durees %} {% set prixAbonnement = box.prix -
+              (box.prix * (duree.pourcentage / 100)) %}
               <a href="{{ path('app_box_id', { id: box.id }) }}">
                 <button class="list-box-detail-price-btn">
                   <span> Abonnement {{ duree.libelle }}</span>
-                  <span
-                    >{{
-                      box.prix - box.prix * (duree.pourcentage / 100)
-                    }}€/mois</span
-                  >
+                  <span>{{ prixAbonnement }}€/mois</span>
                 </button></a
               >
               {% endfor %}

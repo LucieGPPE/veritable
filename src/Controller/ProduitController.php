@@ -24,8 +24,15 @@ class ProduitController extends AbstractController
         $cart = $request->cookies->get('cart', '{}');
         $cart = json_decode($cart, true);
 
+        $total = 0;
+
+        foreach ($cart as $item) {
+            $prix = $item['price'];
+            $total += $prix * $item['quantity'];
+        }
+
         return $this->render('product/allProduct.html.twig', [
-            'controller_name' => 'ProduitController','categories'=>$categories,'cart'=>$cart
+            'controller_name' => 'ProduitController','categories'=>$categories,'cart'=>$cart,'total'=>$total
         ]);
     }
     #[Route('/produit/{id}', name: 'app_product_id')]
@@ -37,9 +44,14 @@ class ProduitController extends AbstractController
         $cart = $request->cookies->get('cart', '{}');
         $cart = json_decode($cart, true);
    
+        $total = 0;
 
+        foreach ($cart as $item) {
+            $prix = $item['price'];
+            $total += $prix * $item['quantity'];
+        }
         return $this->render('product/product.html.twig', [
-            'controller_name' => 'ProduitController','product'=>$product,'cart'=>$cart
+            'controller_name' => 'ProduitController','product'=>$product,'cart'=>$cart,'total'=>$total
         ]);
     }
 
@@ -50,6 +62,7 @@ class ProduitController extends AbstractController
     $quantite = $request->request->get('qts');
     $idProduct = $request->request->get('id_product');
     $libelleProduct = $request->request->get('libelle_product');
+    $price = $request->request->get('price');
 
     // // Récupérez le panier existant ou initialisez un nouveau panier
      $cart = $request->cookies->get('cart', '{}');
@@ -65,8 +78,10 @@ class ProduitController extends AbstractController
      }
 
      if (!$existingProduct) {
-         $cart[] = ['id' => $idProduct, 'libelle' => $libelleProduct, 'quantity' => $quantite, 'type'=>'produit'];
+         $cart[] = ['id' => $idProduct, 'libelle' => $libelleProduct, 'quantity' => $quantite, 'type'=>'produit', 'price'=>$price];
      }
+
+    
  
     // // Mettez à jour le cookie du panier
      $response = new Response();

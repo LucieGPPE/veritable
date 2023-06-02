@@ -47,9 +47,12 @@ block body %}
                 class="box-presentation-detail-desc-content-select-dropdown"
                 name="subscription-type"
               >
-                <option value="solo">Box individuelle</option>
-                {% for duree in durees %}
-                <option value="{{ duree.id }}">Box {{ duree.libelle }}</option>
+                <option value="solo">Box individuelle {{ box.prix }}</option>
+                {% for duree in durees %} {% set prixAbonnement = box.prix -
+                (box.prix * (duree.pourcentage / 100)) %}
+                <option value="{{ duree.id }}">
+                  Box {{ duree.libelle }} {{ prixAbonnement }} €
+                </option>
 
                 {% endfor %}
               </select>

@@ -26,9 +26,15 @@ class BoxController extends AbstractController
         $cart = $request->cookies->get('cart', '{}');
         $cart = json_decode($cart, true);
 
+        $total = 0;
+
+        foreach ($cart as $item) {
+            $prix = $item['price'];
+            $total += $prix * $item['quantity'];
+        }
 
         return $this->render('box/box.html.twig', [
-            'controller_name' => 'BoxController','box'=>$box,'cart'=>$cart,'durees'=>$durees
+            'controller_name' => 'BoxController','box'=>$box,'cart'=>$cart,'durees'=>$durees,'total'=>$total
         ]);
     }
 
@@ -44,8 +50,15 @@ class BoxController extends AbstractController
         $cart = $request->cookies->get('cart', '{}');
         $cart = json_decode($cart, true);
 
+        $total = 0;
+
+        foreach ($cart as $item) {
+            $prix = $item['price'];
+            $total += $prix * $item['quantity'];
+        }
+
         return $this->render('box/allBox.html.twig', [
-            'controller_name' => 'BoxController','boxs'=>$boxs,'durees'=>$durees,'cart'=>$cart
+            'controller_name' => 'BoxController','boxs'=>$boxs,'durees'=>$durees,'cart'=>$cart,'total'=>$total
         ]);
     }
 
@@ -66,7 +79,7 @@ class BoxController extends AbstractController
         $existingOrder = false;
         foreach ($cart as $key => $item) {
             if ($item['type'] === 'box' && $item['id'] === $idBox) {
-                $existingProduct = true;
+                $existingOrder = true;
                 $cart[$key]['quantity'] += $quantite;
                 break;
             }

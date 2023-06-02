@@ -19,9 +19,14 @@ class ArticleController extends AbstractController
 
         $cart = $request->cookies->get('cart', '{}');
         $cart = json_decode($cart, true);
+        $total = 0;
+        foreach ($cart as $item) {
+            $prix = $item['prix'];
+            $total += $prix * $item['quantity'];
+        }
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'ArticleController','article'=>$article,'cart'=>$cart
+            'controller_name' => 'ArticleController','article'=>$article,'cart'=>$cart,'total'=>$total
         ]);
     }
 }

@@ -12,16 +12,18 @@
     <div class="modal-body">
       {% if cart is defined%} {% if cart is empty %}
       <p class="modal-body-empty">Le panier est vide.</p>
-      {% else %} {% for item in cart %}
-
+      {% else %} {% for item in cart %} {% if item.id is defined%}
       <div class="modal-body-product">
         <span>{{ item.id }}</span>
         <span>{{ item.libelle }}</span>
-        <span>{{ item.quantity }}</span>
+        <span>quantité : {{ item.quantity }}</span>
       </div>
+      {% endif %}
       <hr />
       {% endfor %}
-      <div class="modal-body-total">Total <span>XX.XX€</span></div>
+      <div class="modal-body-total">
+        Total <span>{{ total }}€</span>
+      </div>
       <button class="modal-body-btn">Régler mon panier</button>
       {% endif %} {% endif %}
     </div>
