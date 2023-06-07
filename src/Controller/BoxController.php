@@ -65,7 +65,10 @@ class BoxController extends AbstractController
     #[Route('/addBox', name: 'app_add_order_id')]
     public function addBox(ManagerRegistry $doctrine,Request $request): Response
     {
-    $subscriptionType = $request->request->get('subscription-type');
+    $subscriptionTypeAndPrice = $request->request->get('subscription-type');
+    $subscriptionTypeAndPrice = explode("-",$subscriptionTypeAndPrice);
+    $subscriptionType=$subscriptionTypeAndPrice[0];
+    $boxPrice = $subscriptionTypeAndPrice[1];
     $idBox = $request->request->get('box-id');
     $boxLibelle = $request->request->get('box-libelle');
 
@@ -85,7 +88,7 @@ class BoxController extends AbstractController
             }
         }
         if (!$existingOrder) {
-            $cart[] = ['id' => $idBox, 'libelle' => $boxLibelle, 'quantity' => $quantite, 'type'=>'box'];
+            $cart[] = ['id' => $idBox, 'libelle' => $boxLibelle, 'quantity' => $quantite, 'type'=>'box','price'=>$boxPrice];
         }
     }else{
         $existingSubscription = false;
@@ -97,7 +100,7 @@ class BoxController extends AbstractController
             }
         }
         if (!$existingSubscription) {
-            $cart[] = ['id' => $idBox, 'libelle' => $boxLibelle, 'quantity' => $quantite, 'type'=>'subscription','duree'=>$subscriptionType];
+            $cart[] = ['id' => $idBox, 'libelle' => $boxLibelle, 'quantity' => $quantite, 'type'=>'subscription','duree'=>$subscriptionType,'price'=>$boxPrice];
         }
     }
  

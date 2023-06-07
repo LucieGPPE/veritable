@@ -14,9 +14,18 @@
       <p class="modal-body-empty">Le panier est vide.</p>
       {% else %} {% for item in cart %} {% if item.id is defined%}
       <div class="modal-body-product">
-        <span>{{ item.id }}</span>
         <span>{{ item.libelle }}</span>
-        <span>quantité : {{ item.quantity }}</span>
+        <div class="modal-body-product-qts">
+          <span>qt : {{ item.quantity }}</span>
+          <button
+            class="modal-body-product-btn"
+            id="decreaseBtn-{{ item.id }}"
+            onclick="decreaseQuantity('{{ item.id }}')"
+            data-url="{{ path('decrease_quantity', { itemId: item.id }) }}"
+          >
+            X
+          </button>
+        </div>
       </div>
       {% endif %}
       <hr />
@@ -29,3 +38,12 @@
     </div>
   </div>
 </div>
+
+{% block script %}
+<script>
+  function decreaseQuantity(itemId) {
+    var url = document.getElementById("decreaseBtn-" + itemId).dataset.url;
+    window.location.href = url;
+  }
+</script>
+{% endblock %}

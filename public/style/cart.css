@@ -23,6 +23,22 @@
 }
 .modal-body-product {
   margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-body-product-qts {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.modal-body-product-btn {
+  height: 46px;
+  background: #241916;
+
+  border: 1px solid #241916;
+  border-radius: 16px;
+  color: white;
 }
 .modal-body-total {
   width: 100%;

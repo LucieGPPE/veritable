@@ -16,7 +16,13 @@ block body %}
       />
       <div class="box-presentation-detail-desc">
         <h1 class="box-presentation-detail-desc-title">{{ box.libelle }}</h1>
-        <div class="box-presentation-detail-desc-rate">5 etoiles</div>
+        <div class="box-presentation-detail-desc-rate">
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
+        </div>
+        <div class="box-presentation-detail-desc-rate-number">47 avis</div>
         <div class="box-presentation-detail-desc-content">
           <span class="box-presentation-detail-desc-content-title"
             >Chaque box contient</span
@@ -47,10 +53,12 @@ block body %}
                 class="box-presentation-detail-desc-content-select-dropdown"
                 name="subscription-type"
               >
-                <option value="solo">Box individuelle {{ box.prix }}</option>
+                <option value="solo-{{ box.prix }}">
+                  Box individuelle {{ box.prix }}
+                </option>
                 {% for duree in durees %} {% set prixAbonnement = box.prix -
                 (box.prix * (duree.pourcentage / 100)) %}
-                <option value="{{ duree.id }}">
+                <option value="{{ duree.id }}-{{ prixAbonnement }}">
                   Box {{ duree.libelle }} {{ prixAbonnement }} €
                 </option>
 
@@ -59,6 +67,7 @@ block body %}
             </div>
             <input type="hidden" name="box-id" value="{{ box.id }}" />
             <input type="hidden" name="box-libelle" value="{{ box.libelle }}" />
+
             <div class="box-presentation-detail-desc-content-order">
               <button
                 class="box-presentation-detail-desc-content-order-btn"
@@ -79,6 +88,7 @@ block body %}
       </div>
     </div>
   </div>
+  {#
   <div class="box-month">
     <div class="box-month-description">
       {% for produit in box.produit %}
@@ -86,12 +96,13 @@ block body %}
       {% endfor %}
     </div>
   </div>
+  #}
   <div class="box-rate">
     <div class="box-rate-avg">
       <div class="box-rate-avg-title">Avis</div>
       <div class="box-rate-avg-stars">
         <div class="box-rate-avg-star">
-          <i class="fa fa-solid fa-star fa-xl star star yellow"></i>
+          <i class="fa fa-solid fa-star fa-xl star yellow"></i>
           <i class="fa fa-solid fa-star fa-xl star yellow"></i>
           <i class="fa fa-solid fa-star fa-xl star yellow"></i>
           <i class="fa fa-solid fa-star fa-xl star yellow"></i>

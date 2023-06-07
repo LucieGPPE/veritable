@@ -20,6 +20,11 @@
 .box-presentation-detail-desc-rate {
   margin: 10px;
 }
+.box-presentation-detail-desc-rate-number {
+  font-size: 12px;
+  font-weight: 200;
+  margin-bottom: 50px;
+}
 .box-presentation-detail-desc-content-title {
   font-weight: 500;
   font-size: 18px;
@@ -43,6 +48,12 @@
   border: 1px solid #241916;
   border-radius: 16px;
   padding: 10px 20px;
+}
+
+.box-presentation-detail-desc-content-parfum button:hover {
+  background-color: #241916;
+  border: 1px solid white;
+  color: white;
 }
 .box-presentation-detail-desc-content-select-dropdown {
   display: flex;
